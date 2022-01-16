@@ -654,6 +654,7 @@ namespace
 void pycuda_expose_tools();
 void pycuda_expose_gl();
 void pycuda_expose_curand();
+void pycuda_expose_cuda_graph();
 
 
 
@@ -1707,6 +1708,9 @@ BOOST_PYTHON_MODULE(_driver)
 #ifdef HAVE_CURAND
   pycuda_expose_curand();
 #endif
+
+  // TODO: This should check for a minimum cuda version
+  pycuda_expose_cuda_graph();
 }
 
 // vim: foldmethod=marker

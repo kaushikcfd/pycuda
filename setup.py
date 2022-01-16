@@ -168,6 +168,9 @@ def main():
         for lib_dir in conf["CUDADRV_LIB_DIR"]:
             conf["LDFLAGS"].extend(["-Xlinker", "-rpath", "-Xlinker", lib_dir])
 
+    # TODO: this should probably take in config flag.
+    EXTRA_SOURCES.append("src/wrapper/wrap_cudagraph.cpp")
+
     if conf["CUDA_ENABLE_GL"]:
         EXTRA_SOURCES.append("src/wrapper/wrap_cudagl.cpp")
         EXTRA_DEFINES["HAVE_GL"] = 1
